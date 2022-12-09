@@ -71,14 +71,14 @@ const usuariosDelete = async(req, res = response ) => {
 
     const { id } = req.params;
 
-    //Eliminacion fisica del registro
-    // const usuario = await Usuario.findByIdAndDelete( id );
-
     const usuario = await Usuario.findByIdAndUpdate( id, { estado: false } );
 
-    res.json(usuario);
-}
+    //const usuario autenticado
+    // const usuarioAutenticado = req.usuario;//user login
+    // res.json({ usuario, usuarioAutenticado });
 
+    res.json(usuario);//Usuario modificado/Eliminado
+}
 
 module.exports = {
     usuariosGet,
